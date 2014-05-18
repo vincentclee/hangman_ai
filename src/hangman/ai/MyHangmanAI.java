@@ -24,17 +24,13 @@ public class MyHangmanAI {
 	private static final boolean DEBUG = false;
 	private static final String DICTIONARY = "dictionary.data";
 	private Map<Integer, List<String>> dictionaryMap;
-	private List<String> words;
-	private Map<Character, Integer> characterMap;
-	private SortedMap<Integer, List<Character>> frequencyMap;
+	private List<String> wordsList;
 	
 	/**
 	 * Default Constructor
 	 */
 	public MyHangmanAI() {
 		this.dictionaryMap = new HashMap<Integer, List<String>>();
-		this.characterMap = new HashMap<Character, Integer>();
-		this.frequencyMap = new TreeMap<Integer, List<Character>>();
 		
 		//Add dictionary file to length map
 		loadDictionary();
@@ -83,12 +79,12 @@ public class MyHangmanAI {
 		 * Takes dictionaryMap and processes only ones with correct length.
 		 * Regex those words and puts matches into words List.
 		 */
-		if (words == null) {
-			words = new ArrayList<String>();
+		if (wordsList == null) {
+			wordsList = new ArrayList<String>();
 			String regex = word.replaceAll("-", ".");
 			for (String str : dictionaryMap.get(word.length())) {
 				if (Pattern.matches(regex, str))
-					words.add(str);
+					wordsList.add(str);
 			}
 			
 			//Garbage collection
@@ -96,7 +92,7 @@ public class MyHangmanAI {
 		}
 		
 		//produces output map.
-		System.out.println(words.toString());
+		System.out.println(wordsList.toString());
 		
 		//Next step, count characters excluding matched, and guessed
 		//Guessed should inlcude matched+missed characters
@@ -111,18 +107,22 @@ public class MyHangmanAI {
 	 * @return Guess letter
 	 */
 	public char makeGuess(String word, String guessed) {
+		Map<Character, Integer> characterMap = new HashMap<Character, Integer>();
+		SortedMap<Integer, List<Character>> frequencyMap = new TreeMap<Integer, List<Character>>();
+		
+		String regex = word.replaceAll("-", ".");
 		
 		//V1 - Achieved
 		/*
 		 * Takes dictionaryMap and processes only ones with correct length.
 		 * Regex those words and puts matches into words List.
 		 */
-		if (words == null) {
-			words = new ArrayList<String>();
-			String regex = word.replaceAll("-", ".");
+		if (wordsList == null) {
+			wordsList = new ArrayList<String>();
+			
 			for (String str : dictionaryMap.get(word.length())) {
 				if (Pattern.matches(regex, str)) {
-					words.add(str);
+					wordsList.add(str);
 					for (char c: str.toCharArray()) {
 						if (guessed.contains("" + c))
 							continue;
@@ -142,6 +142,28 @@ public class MyHangmanAI {
 			
 			//Garbage collection
 			dictionaryMap = null;
+		} else {
+			Iterator<String> iter = wordsList.iterator();
+			while (iter.hasNext()) {
+				String str = iter.next();
+				if (Pattern.matches(regex, str)) {
+					for (char c: str.toCharArray()) {
+						if (guessed.contains("" + c))
+							continue;
+						
+						/*
+						 * Adds a new key with value of 1
+						 * OR
+						 * +1 a value of an existing key
+						 */
+						int temp = 0;
+						if (characterMap.containsKey(c))
+							temp = characterMap.get(c);
+						characterMap.put(c, ++temp);
+					}
+				} else
+					iter.remove();
+			}
 		}
 		
 		
@@ -156,12 +178,12 @@ public class MyHangmanAI {
 		}
 		
 		//produces output map.
-		System.out.println(words.toString());
+		if (DEBUG) System.out.println(wordsList.toString());
 		
-		System.out.println(characterMap.toString());
+		if (DEBUG) System.out.println(characterMap.toString());
 		
-		System.out.println(frequencyMap.toString());
-		System.out.println(frequencyMap.get(frequencyMap.lastKey()));
+		if (DEBUG) System.out.println(frequencyMap.toString());
+		if (DEBUG) System.out.println(frequencyMap.get(frequencyMap.lastKey()));
 		
 		//Next step, count characters excluding matched, and guessed
 		//Guessed should inlcude matched+missed characters
