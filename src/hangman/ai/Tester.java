@@ -81,7 +81,7 @@ public class Tester {
 		System.out.println(new MyGuesser(AI.PLAUE, false).guessAll());
 	}
 	
-	@Test
+//	@Test
 	public void MyGuessAll() {
 		System.out.println(new MyGuesser(AI.MINE, false).guessAll());
 	}

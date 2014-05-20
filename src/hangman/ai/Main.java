@@ -76,7 +76,7 @@ public class Main {
 //		System.out.println(test.makeGuess("aa--", "ea"));
 //		System.out.println(test.makeGuess("aals", "eas"));
 		
-		double accuracy = new MyGuesser(AI.MINE, true).guess("aals");
+		double accuracy = new MyGuesser(AI.PLAUE, true).guess("aals");
 //		double accuracy = new MyGuesser(AI.MINE, false).guessAll();
 		System.out.println(accuracy);
 	}

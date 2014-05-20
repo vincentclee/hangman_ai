@@ -37,9 +37,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -157,11 +154,7 @@ public class MyGuesser {
 			words++;
 			try {
 				obj = cls.newInstance();
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 //			if (words == 50) break;
@@ -175,9 +168,7 @@ public class MyGuesser {
 	
 	public void log(String word, double accuracy) {
 		try {
-			SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
-			
-			File log = new File("accuracy_" + selector + ".log-" + date.format(new Date()));
+			File log = new File("accuracy_" + selector + ".log");
 			PrintWriter out = new PrintWriter(new FileWriter(log, true));
 			out.append(word);
 			out.append(" ");
