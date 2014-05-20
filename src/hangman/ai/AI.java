@@ -32,52 +32,6 @@
 
 package hangman.ai;
 
-/**
- * Hangman AI
- * 
- * @author Vincent Lee
- * @since April 18, 2014
- * @version 1.0
- */
-
-import java.util.regex.Pattern;
-
-public class Main {
-	
-	public Main() {
-		
-	}
-	
-	public void regexTest(String working, String word) {
-		String regex = working.replaceAll("-", ".");
-		System.out.println(regex);
-		
-		boolean match = Pattern.matches(regex, word);
-		System.out.println(match);
-	}
-	
-	public void runner() {
-		//MATCH
-		regexTest("a-c-e-", "abcdef");
-		//NO MATCH
-		regexTest("a-c-e-", "abcde");
-		//NO MATCH
-		regexTest("a-c-e-", "bbcdef");
-	}
-	
-	public static void main(String[] args) {
-//		new Main().runner();
-		
-		
-		
-//		MyHangmanAI test = new MyHangmanAI();
-//		System.out.println(test.makeGuess("----", ""));
-//		System.out.println(test.makeGuess("----", "e"));
-//		System.out.println(test.makeGuess("aa--", "ea"));
-//		System.out.println(test.makeGuess("aals", "eas"));
-		
-		double accuracy = new MyGuesser(AI.MINE, true).guess("aals");
-//		double accuracy = new MyGuesser(AI.MINE, false).guessAll();
-		System.out.println(accuracy);
-	}
+public enum AI {
+	PLAUE, DECOMPILED, MINE
 }
