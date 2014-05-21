@@ -32,6 +32,14 @@
 
 package hangman.ai;
 
+/**
+ * Hangman Enum Types
+ * 
+ * @author Vincent Lee
+ * @since May 18, 2014
+ * @version 1.0
+ */
+
 public enum AI {
 	PLAUE, DECOMPILED, MINE
 }

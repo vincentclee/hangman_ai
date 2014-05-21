@@ -40,17 +40,9 @@ package hangman.ai;
  * @version 1.0
  */
 
-import static org.junit.Assert.*;
-
-import java.lang.reflect.Method;
-
 import org.junit.Test;
 
 public class Tester {
-	public char method2(String a, String b) {
-		return 'a';
-	}
-	
 	@Test
 	public void PlaueConstructor() {
 		try {
@@ -81,7 +73,7 @@ public class Tester {
 		System.out.println(new MyGuesser(AI.PLAUE, false).guessAll());
 	}
 	
-//	@Test
+	@Test
 	public void MyGuessAll() {
 		System.out.println(new MyGuesser(AI.MINE, false).guessAll());
 	}

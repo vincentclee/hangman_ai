@@ -32,13 +32,6 @@
 
 package hangman.ai;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.lang.reflect.Method;
-import java.util.Scanner;
-
 /**
  * MyGuesser for initializing AI and providing accuracy of the AI for a word.
  * 
@@ -46,6 +39,13 @@ import java.util.Scanner;
  * @since May 18, 2014
  * @version 1.0
  */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
+import java.util.Scanner;
 
 public class MyGuesser {
 	private static final String DICTIONARY = "dictionary.data";
