@@ -73,10 +73,10 @@ public class Validator {
 	}
 	
 	public static void main(String[] args) {
-		double accuracy = new Validator().computeAccuracy("accuracy_MINE.log");
+		double accuracy = new Validator().computeAccuracy("logs/accuracy_MINE.log");
 		System.out.println("MINE: " + accuracy);
 		
-		accuracy = new Validator().computeAccuracy("accuracy_PLAUE.log");
+		accuracy = new Validator().computeAccuracy("logs/accuracy_PLAUE.log");
 		System.out.println("PLAUE: " + accuracy);
 	}
 }
