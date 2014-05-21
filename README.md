@@ -17,4 +17,4 @@ The methods available in HangmanAI include
 I have achieved a **30.3%** increase in accuracy over Dr. Chris Plaue Phd's Algorithm.
 
 
-# Lets Get Start.
+# Lets get start.
