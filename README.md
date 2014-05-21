@@ -8,7 +8,7 @@ The methods available in HangmanAI include
 - char makeGuess (String, String) where the first parameter is the word with blanks (lower case letters, blanks are -). The second parameter is a string of guessed words. 
 
 ##Validation Procedure
-number of guesses / number of actual guesses
+`accuracy = number of guesses / number of actual guesses`
 
 > MINE: 0.7792318457931986  
 > PLAUE: 0.47667409819988715
