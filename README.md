@@ -21,4 +21,6 @@ I have achieved a **30.3%** increase in accuracy over Dr. Chris Plaue PhD's Algo
 The Dictionary contains **172820** elements.  
 Also runtime, not theoretical runtime, is a lot lower.
 
+![runtime](https://raw.githubusercontent.com/vincentclee/hangman_ai/master/images/panning.jpg)
+
 # Lets get start.
