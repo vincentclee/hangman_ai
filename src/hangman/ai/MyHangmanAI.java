@@ -133,22 +133,20 @@ public class MyHangmanAI {
 		
 		/*
 		 * Takes dictionaryMap and processes only ones with correct length.
-		 * Regex those words and puts matches into words List.
+		 * Deep-Copy
 		 * Words characters are counted and put into a map.
 		 */
 		if (wordsList == null) {
 			wordsList = new ArrayList<String>();
 			
 			for (String str : dictionaryMap.get(word.length())) {
-				if (Pattern.matches(regex, str)) {
-					wordsList.add(str);
-					for (char c: str.toCharArray()) {
-						//Increments existing key or adds new key
-						int temp = 0;
-						if (characterMap.containsKey(c))
-							temp = characterMap.get(c);
-						characterMap.put(c, ++temp);
-					}
+				wordsList.add(str);
+				for (char c: str.toCharArray()) {
+					//Increments existing key or adds new key
+					int temp = 0;
+					if (characterMap.containsKey(c))
+						temp = characterMap.get(c);
+					characterMap.put(c, ++temp);
 				}
 			}
 			
@@ -206,9 +204,9 @@ public class MyHangmanAI {
 		
 		//Current wordList working set
 		if (DEBUG) System.out.println(wordsList.toString());
+		if (DEBUG) System.out.println(characterMap.toString());
 		if (DEBUG) System.out.println(frequencyMap.toString());
 		if (DEBUG) System.out.println(frequencyMap.get(frequencyMap.lastKey()));
-		
 		/*
 		 * TODO: Refine Algorithm
 		 * Currently returns first item in hash.

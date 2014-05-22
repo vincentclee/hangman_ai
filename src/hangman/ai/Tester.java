@@ -60,20 +60,20 @@ public class Tester {
 	
 	@Test
 	public void PlaueMakeGuess() {
-		new MyGuesser(AI.PLAUE, false).guess("acronymically");
+		new MyGuesser(AI.PLAUE, false).guess("interaction");
 	}
 	
 	@Test
 	public void MyMakeGuess() {
-		new MyGuesser(AI.MINE, false).guess("acronymically");
+		new MyGuesser(AI.MINE, false).guess("interaction");
 	}
 	
-	@Test
+//	@Test
 	public void PlaueGuessAll() {
 		System.out.println(new MyGuesser(AI.PLAUE, false).guessAll());
 	}
 	
-	@Test
+//	@Test
 	public void MyGuessAll() {
 		System.out.println(new MyGuesser(AI.MINE, false).guessAll());
 	}
