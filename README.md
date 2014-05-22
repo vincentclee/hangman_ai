@@ -11,12 +11,26 @@ The methods available in HangmanAI include
 - [x] Build AI
 - [x] Build Testing program
 - [x] Build Validation program
-- [ ] Finish/Enhance AI
+- [ ] Finish/Enhance AI (priority map for characters)
+
+##Validation Procedure
+> accuracy = number of guesses / number of actual guesses
+
+> MINE: 0.7792318457931986  
+> PLAUE: 0.47667409819988715
+
+
+I have achieved a **30.3%** increase in accuracy over Dr. Chris Plaue PhD's Algorithm.  
+The Dictionary contains **172820** elements.  
+Also runtime, not theoretical runtime, is a lot lower.
+
+![runtime](https://raw.githubusercontent.com/vincentclee/hangman_ai/master/images/panning.jpg)
 
 ##AI Step by Step
 **Word:** interaction
 
 ###Step 0
+--
 Constructor:
 * Load Dictionary into a Map where the key is Integer, and the value is a ArrayList of Strings into **dictionaryMap**
 * The key is the length of the word, and the value is the words which are that length
@@ -37,6 +51,7 @@ Constructor:
 **Active:** -----------
 
 ###Step 1
+--
 First run of the method `makeGuess(String word, String guessed)` loop will
 * deep-copy each word that is 11 characters long int **wordList**
 * count the occurances of each characters in all the words that are 11 characters long into **characterMap**
@@ -45,19 +60,23 @@ First run of the method `makeGuess(String word, String guessed)` loop will
 **characterMap:** `{f=1866, g=4652, d=5221, e=19341, b=2758, c=7518, a=12541, n=12736, o=11360, l=8730, m=4907, j=178, k=977, h=3846, i=16729, w=867, ...`
 
 ###Step 2
+--
 Make the **dictionaryMap** in step 0 eligible for JAVA garbage collection
 
 ###Step 3
+--
 Convert **characterMap** from key->value to value->key into SortedMap **frequencyMap**  
 **frequencyMap:** `{178=[j], 275=[q], 464=[x], 801=[z], 867=[w], 977=[k], 1707=[v], 1866=[f], 2644=[y], 2758=[b], 3846=[h], 4652=[g], 4907=[m], 5093=[p], ...`
 
 ###Step 4
+--
 Grab the last key's value off of **frequencyMap** `[e]`
 
 **Guess:** e  
 **Active:** ---e-------
 
 ###Step 5
+--
 Second run of `makeGuess("---e-------", "e")`  
 Convert the `---e-------` into `...e.......` for the `Pattern.matches(regex, str)`  
 Run the Pattern matcher over each word in **wordList**  
@@ -76,6 +95,7 @@ If there are two characters with same frequency, it takes the first. (this area 
 **Word:** ---er------
 
 ###Step 6
+--
 Third run of `makeGuess("---er------", "er")`  
 **wordList:** `[adverbially, adversarial, adversaries, adversative, adverseness, adversities, advertences, advertently, advertisers, advertising, advertizing, advertorial, ...`  
 **characterMap:** `{f=90, g=141, d=276, b=84, c=215, a=438, n=598, o=288, l=293, m=138, j=3, k=28, h=146, i=669, w=53, v=99, u=272, t=590, s=609, q=1, p=288, z=32, y=120, x=26}`  
@@ -86,6 +106,7 @@ Last key's value off of **frequencyMap** `[i]`
 **Word:** i--er---i--
 
 ###Step 7
+--
 Fourth run of `makeGuess("i--er---i--", "eri")`  
 **wordList:** `[imperialism, imperialist, imperilling, inferential, inferiority, infertility, innerspring, innervating, innervation, interacting, interaction, interactive, ...`  
 **characterMap:** `{f=12, g=17, d=3, c=11, a=22, n=73, o=10, l=19, m=7, h=3, v=4, u=2, t=46, s=14, p=8, z=2, y=6, x=1}`  
@@ -96,6 +117,7 @@ Last key's value off of **frequencyMap** `[n]`
 **Word:** in-er---i-n
 
 ###Step 8
+--
 Fifth run of `makeGuess("in-er---i-n", "erin")`  
 **wordList:** `[innervation, interaction, interfusion]`  
 **characterMap:** `{f=1, v=1, u=1, t=4, s=1, c=1, a=2, o=3}`  
@@ -106,6 +128,7 @@ Last key's value off of **frequencyMap** `[t]`
 **Word:** inter--ti-n
 
 ###Step 9
+--
 Sixth run of `makeGuess("inter--ti-n", "erint")`  
 **wordList:** `[interaction]`  
 **characterMap:** `{c=1, a=1, o=1}`  
@@ -116,6 +139,7 @@ Last key's value off of **frequencyMap** `[c, a, o]`
 **Word:** inter-cti-n
 
 ###Step 10
+--
 Sixth run of `makeGuess("inter-cti-n", "erintc")`  
 **wordList:** `[interaction]`  
 **characterMap:** `{a=1, o=1}`  
@@ -126,6 +150,7 @@ Last key's value off of **frequencyMap** `[a, o]`
 **Word:** interacti-n
 
 ###Step 11
+--
 Sixth run of `makeGuess("interacti-n", "erintca")`  
 **wordList:** `[interaction]`  
 **characterMap:** `{o=1}`  
@@ -136,18 +161,5 @@ Last key's value off of **frequencyMap** `[o]`
 **Word:** interaction
 
 **Accuracy:** 1.0
-
-##Validation Procedure
-> accuracy = number of guesses / number of actual guesses
-
-> MINE: 0.7792318457931986  
-> PLAUE: 0.47667409819988715
-
-
-I have achieved a **30.3%** increase in accuracy over Dr. Chris Plaue PhD's Algorithm.  
-The Dictionary contains **172820** elements.  
-Also runtime, not theoretical runtime, is a lot lower.
-
-![runtime](https://raw.githubusercontent.com/vincentclee/hangman_ai/master/images/panning.jpg)
 
 # Lets get start.
