@@ -66,8 +66,6 @@ public class MyGuesser {
 			paramString[0] = String.class;
 			paramString[1] = String.class;
 			
-//			@SuppressWarnings("rawtypes")
-//			Class cls = null;
 			switch (selector) {
 				case PLAUE:
 					cls = Class.forName("HangmanAI");
@@ -157,7 +155,7 @@ public class MyGuesser {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//			if (words == 50) break;
+			
 			System.out.print(words);
 			System.out.println(" " + (accuracy / (words + 0.0)));
 			log(word, accuracy);
