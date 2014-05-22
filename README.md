@@ -46,13 +46,28 @@ Convert **characterMap** from key->value to value->key into SortedMap **frequenc
 **frequencyMap:** `{178=[j], 275=[q], 464=[x], 801=[z], 867=[w], 977=[k], 1707=[v], 1866=[f], 2644=[y], 2758=[b], 3846=[h], 4652=[g], 4907=[m], 5093=[p], ...`
 
 ###Step 4
-Grab the last key's value off of **frequencyMap**
-`[e]`
+Grab the last key's value off of **frequencyMap** `[e]`
 
-**Guess:** e
+**Guess:** e  
 **Active:** ---e-------
 
+###Step 5
+Second run of `makeGuess("---e-------", "e")`  
+Convert the `---e-------` into `...e.......` for the `Pattern.matches(regex, str)`  
+Run the Pattern matcher over each word in **wordList**  
+The regex will only match words which are the same length, and contain all the characters in the same place, and all '.' are ignored, words which don't match are removed.  
+Also see if the word in **wordList** contains any of the missed characters, (guessed - active) and remove word.  
+Convert characterMap into frequencyMap
 
+**wordList:** `[abnegations, abreactions, absenteeism, accelerando, accelerants, accelerated, accelerates, accelerator, accentually, accentuated, accentuates, acceptances, acceptation, acceptingly, ...`
+**characterMap:** `{f=294, g=508, d=737, b=273, c=756, a=1257, n=1664, o=895, l=978, m=481, j=19, k=122, h=396, i=1794, w=141, v=263, u=540, t=1561, s=1738, ...`
+**frequencyMap:** `{11=[q], 19=[j], 64=[z], 66=[x], 122=[k], 141=[w], 263=[v], 273=[b], 294=[f], 333=[y], 396=[h], 481=[m], 508=[g], 540=[u], 586=[p], 737=[d], 756=[c], 895=[o],`
+
+Last key's value off of **frequencyMap** `[r]`  
+If there are two characters with same frequency, it takes the first. (this area can be refined by creating a character priority list and tweaking)
+
+**Guess:** r  
+**Word:** ---er------
 
 ##Validation Procedure
 > accuracy = number of guesses / number of actual guesses
