@@ -12,9 +12,10 @@ The methods available in HangmanAI include
 
 ####Step 0
 Constructor:
-* Load Dictionary into a Map where the key is Integer, and the value is a ArrayList of Strings
+* Load Dictionary into a Map where the key is Integer, and the value is a ArrayList of Strings into **dictionaryMap**
 * The key is the length of the word, and the value is the words which are that length
 
+**dictionaryMap:**  
 ```
 2=[aa, ab]
 3=[aah, aal, aas, aba]
@@ -31,13 +32,16 @@ Constructor:
 
 ####Step 1
 First run of the method `makeGuess(String word, String guessed)` will
-* deep-copy each word that is 11 characters long
-* count the occurances of each characters in all the words that are 11 characters long
-* make the Dictionary May in step 0 eligible for JAVA garbage collection
+* deep-copy each word that is 11 characters long int **wordList**
+* count the occurances of each characters in all the words that are 11 characters long into **characterMap**
+* make the **dictionaryMap** in step 0 eligible for JAVA garbage collection
 
-wordList: `[abandonment, abbreviated, abbreviates, abbreviator, abdications, abdominally, abecedarian, aberrancies, aberrations, abhorrences, abhorrently, ...`
+**wordList:** `[abandonment, abbreviated, abbreviates, abbreviator, abdications, abdominally, abecedarian, aberrancies, aberrations, abhorrences, abhorrently, ...`  
+**characterMap:** `{f=1866, g=4652, d=5221, e=19341, b=2758, c=7518, a=12541, n=12736, o=11360, l=8730, m=4907, j=178, k=977, h=3846, i=16729, w=867, ...`
 
-characterMap: `{f=1866, g=4652, d=5221, e=19341, b=2758, c=7518, a=12541, n=12736, o=11360, l=8730, m=4907, j=178, k=977, h=3846, i=16729, w=867, ...`
+Convert **characterMap** from key->value to value->key into **frequencyMap**  
+**frequencyMap:** `{178=[j], 275=[q], 464=[x], 801=[z], 867=[w], 977=[k], 1707=[v], 1866=[f], 2644=[y], 2758=[b], 3846=[h], 4652=[g], 4907=[m], 5093=[p], ...`
+
 
 ##Validation Procedure
 > accuracy = number of guesses / number of actual guesses
