@@ -48,7 +48,7 @@ Constructor:
 10=[aardwolves]
 ```
 
-**Active:** -----------
+**Word:** -----------
 
 ###Step 1
 --
@@ -59,21 +59,27 @@ First run of the method `makeGuess(String word, String guessed)` loop will
 **wordList:** `[abandonment, abbreviated, abbreviates, abbreviator, abdications, abdominally, abecedarian, aberrancies, aberrations, abhorrences, abhorrently, ...`  
 **characterMap:** `{f=1866, g=4652, d=5221, e=19341, b=2758, c=7518, a=12541, n=12736, o=11360, l=8730, m=4907, j=178, k=977, h=3846, i=16729, w=867, ...`
 
+**Word:** -----------
+
 ###Step 2
 --
 Make the **dictionaryMap** in step 0 eligible for JAVA garbage collection
+
+**Word:** -----------
 
 ###Step 3
 --
 Convert **characterMap** from key->value to value->key into SortedMap **frequencyMap**  
 **frequencyMap:** `{178=[j], 275=[q], 464=[x], 801=[z], 867=[w], 977=[k], 1707=[v], 1866=[f], 2644=[y], 2758=[b], 3846=[h], 4652=[g], 4907=[m], 5093=[p], ...`
 
+**Word:** -----------
+
 ###Step 4
 --
 Grab the last key's value off of **frequencyMap** `[e]`
 
 **Guess:** e  
-**Active:** ---e-------
+**Word:** ---e-------
 
 ###Step 5
 --
