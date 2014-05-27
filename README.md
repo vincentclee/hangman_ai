@@ -12,6 +12,7 @@ The methods available in HangmanAI include
 - [x] Build Testing program
 - [x] Build Validation program
 - [ ] Finish/Enhance AI (priority map for characters)
+- [ ] Speed up Runtime
 
 ##Validation Procedure
 > accuracy = number of guesses / number of actual guesses
