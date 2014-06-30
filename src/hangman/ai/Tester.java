@@ -39,6 +39,7 @@ package hangman.ai;
 import org.junit.Test;
 
 public class Tester {
+	@SuppressWarnings({ "rawtypes", "unused" })
 	@Test
 	public void PlaueConstructor() {
 		try {
@@ -64,12 +65,12 @@ public class Tester {
 		new MyGuesser(AI.MINE, false).guess("interaction");
 	}
 	
-//	@Test
+	@Test
 	public void PlaueGuessAll() {
 		System.out.println(new MyGuesser(AI.PLAUE, false).guessAll());
 	}
 	
-//	@Test
+	@Test
 	public void MyGuessAll() {
 		System.out.println(new MyGuesser(AI.MINE, false).guessAll());
 	}

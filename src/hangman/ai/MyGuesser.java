@@ -49,6 +49,7 @@ public class MyGuesser {
 	private AI selector;
 	private Object obj;
 	private Method method;
+	@SuppressWarnings("rawtypes")
 	private Class cls;
 	
 	@SuppressWarnings("unchecked")
