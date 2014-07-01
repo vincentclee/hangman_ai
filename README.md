@@ -13,6 +13,7 @@ The methods available in HangmanAI include
 - [x] Build Validation program
 - [ ] Finish/Enhance AI (priority map for characters)
 - [ ] Speed up Runtime
+- [ ] Use JAVA 8's MapReduce .parallelStream().filter(predicate)!
 
 ##Validation Procedure
 > accuracy = number of guesses / number of actual guesses
